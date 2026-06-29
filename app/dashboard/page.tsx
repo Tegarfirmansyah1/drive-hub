@@ -136,17 +136,21 @@ export default function App() {
     <div className="min-h-screen bg-[#121212] text-white font-sans p-6 md:p-12">
       <div className="max-w-5xl mx-auto space-y-8">
         
-        {/* Header */}
-        <header className="flex items-center space-x-4 mb-10">
-          <div className="p-3 bg-[#ff9900] rounded-xl text-white shadow-lg shadow-[#ff9900]/30 relative overflow-hidden">
-            <div className="absolute inset-0 bg-white/20 blur-md rounded-full transform -translate-x-4 -translate-y-4"></div>
-            <Cloud size={32} className="relative z-10" />
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold text-white">Drive Hub</h1>
-            <p className="text-zinc-400">Kumpulkan dan kelola unggahan ke semua Google Drive Anda.</p>
-          </div>
-        </header>
+        <header className="flex flex-col mb-10">
+            {/* Bagian Judul: w-fit memastikan lebar mengikuti teks saja */}
+            <div className="p-3 bg-[#ff9900] rounded-xl text-white shadow-lg shadow-[#ff9900]/30 relative overflow-hidden w-fit mb-4">
+                <div className="absolute inset-0 bg-white/20 blur-md rounded-full transform -translate-x-4 -translate-y-4"></div>
+                <h1 className="text-3xl font-bold">
+                <span className="text-white">Drive </span>
+                <span className="text-black">Hub</span>
+                </h1>
+            </div>
+
+            {/* Bagian Deskripsi */}
+            <div>
+                <p className="text-zinc-400">Kumpulkan dan kelola unggahan ke semua Drive Anda.</p>
+            </div>
+            </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           

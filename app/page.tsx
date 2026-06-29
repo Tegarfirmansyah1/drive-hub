@@ -1,25 +1,27 @@
 import Link from 'next/link';
-import { Cloud, Shield, Zap, HardDrive, ArrowRight } from 'lucide-react';
+import { Shield, Zap, HardDrive, ArrowRight } from 'lucide-react';
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-[#ff9900]/30 flex flex-col">
       
       {/* Navbar */}
-      <nav className="container mx-auto px-6 py-6 flex justify-between items-center">
+      <nav className="container mx-auto max-w-5xl px-6 py-2 flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <div className="p-2.5 bg-[#ff9900] rounded-xl text-white shadow-lg shadow-[#ff9900]/30 relative overflow-hidden">
+          <div className="p-2.5 mt-4 bg-[#ff9900] rounded-xl text-white shadow-lg shadow-[#ff9900]/30 relative overflow-hidden">
             <div className="absolute inset-0 bg-white/20 blur-md rounded-full transform -translate-x-3 -translate-y-3"></div>
-            <Cloud size={24} className="relative z-10" />
+            <h1 className="text-xl md:text-3xl font-bold">
+                <span className="text-white">Drive </span>
+                <span className="text-black">Hub</span>
+                </h1>
           </div>
-          <span className="text-xl font-bold tracking-wide">Drive Hub</span>
         </div>
         <div>
           <Link 
             href="/dashboard" 
-            className="px-5 py-2.5 bg-[#1f1f1f] hover:bg-[#2a2a2a] rounded-xl font-medium transition-colors border border-zinc-800"
+            className="px-5 py-2 bg-[#1f1f1f] hover:bg-[#2a2a2a] rounded-xl font-medium transition-colors border border-zinc-800"
           >
-            Masuk Dashboard
+            Masuk
           </Link>
         </div>
       </nav>
@@ -31,19 +33,19 @@ export default function LandingPage() {
           <span className="text-sm font-medium text-zinc-300">Aplikasi Pengelola Drive #1</span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent max-w-4xl leading-tight">
+        <h1 className="text-3xl md:text-7xl font-extrabold mb-8 tracking-tight bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent max-w-4xl leading-tight">
           Satu Tempat Untuk <br className="hidden md:block" />
-          <span className="text-[#ff9900]">Semua Google Drive Anda</span>
+          <span className="text-[#ff9900]">Semua Drive Anda</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Kelola, hubungkan, dan unggah file ke berbagai akun Google Drive tanpa perlu repot berganti akun. Cepat, terpusat, dan sangat efisien.
+        <p className="text-sm md:text-xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+          Kelola, hubungkan, dan unggah file ke berbagai akun Drive tanpa perlu repot berganti akun. Cepat, terpusat, dan sangat efisien.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
           <Link 
             href="/dashboard" 
-            className="w-full sm:w-auto px-8 py-4 bg-[#ff9900] hover:bg-[#e68a00] text-black rounded-xl font-bold text-lg transition-all shadow-lg shadow-[#ff9900]/25 hover:scale-105 active:scale-95 flex items-center justify-center group"
+            className="w-full sm:w-auto px-8 py-4 bg-[#ff9900] hover:bg-[#e68a00] text-black rounded-xl font-bold text-sm md:text-lg transition-all shadow-lg shadow-[#ff9900]/25 hover:scale-105 active:scale-95 flex items-center justify-center group"
           >
             Mulai Sekarang 
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
@@ -63,7 +65,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-bold mb-4">Multi-Akun Terpusat</h3>
               <p className="text-zinc-400 leading-relaxed">
-                Hubungkan puluhan akun Google Drive sekaligus. Pilih target Drive unggahan Anda hanya dengan satu klik melalui *dropdown* interaktif.
+                Hubungkan puluhan akun Drive sekaligus. Pilih target Drive unggahan Anda hanya dengan satu klik melalui *dropdown* interaktif.
               </p>
             </div>
             
@@ -74,7 +76,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-bold mb-4">Upload Cepat & Stabil</h3>
               <p className="text-zinc-400 leading-relaxed">
-                Proses unggah file dioptimalkan dengan *progress bar real-time*. Bebas kirim file ukuran besar langsung ke server Google Drive.
+                Proses unggah file dioptimalkan dengan *progress bar real-time*. Bebas kirim file ukuran besar langsung ke server Drive.
               </p>
             </div>
 

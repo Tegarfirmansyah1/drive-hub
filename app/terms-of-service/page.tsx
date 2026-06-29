@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Cloud, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function TermsOfService() {
   return (
@@ -8,13 +8,15 @@ export default function TermsOfService() {
       <nav className="container mx-auto px-6 py-6 flex items-center justify-between border-b border-zinc-800/50">
         <Link href="/" className="flex items-center space-x-3 group">
           <div className="p-2 bg-[#ff9900] rounded-lg text-white shadow-lg shadow-[#ff9900]/20">
-            <Cloud size={20} />
+            <h1 className="text-xl md:text-3xl font-bold">
+                <span className="text-white">Drive </span>
+                <span className="text-black">Hub</span>
+                </h1>
           </div>
-          <span className="text-lg font-bold tracking-wide group-hover:text-[#ff9900] transition-colors">Drive Hub</span>
         </Link>
         <Link href="/" className="flex items-center text-sm text-zinc-400 hover:text-white transition-colors">
           <ArrowLeft size={16} className="mr-2" />
-          Kembali ke Beranda
+          Kembali
         </Link>
       </nav>
 
