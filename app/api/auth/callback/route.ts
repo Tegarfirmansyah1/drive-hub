@@ -6,6 +6,12 @@ import { google } from 'googleapis';
 import { supabase } from '@/lib/supabase';
 import { encryptToken } from '@/lib/encryption';
 import { AuthStatePayload } from '@/types';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const searchParams = request.nextUrl.searchParams;
@@ -46,18 +52,19 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const encryptedToken = encryptToken(tokens.refresh_token);
 
     // 5. Simpan ke database Supabase
-    const { error: dbError } = await supabase
-      .from('connected_drives')
-      .insert([
-        {
-          alias_name: alias,
-          email: email,
-          encrypted_refresh_token: encryptedToken,
-        }
-      ]);
 
-    if (dbError) {
-      console.error('Error Database Supabase:', dbError);
+    const { error: adminDbError } = await supabaseAdmin
+  .from('connected_drives')
+  .insert([
+    {
+      alias_name: alias,
+      email: email,
+      encrypted_refresh_token: encryptedToken,
+    }
+  ]);
+
+    if (adminDbError) {
+      console.error('Error Database Supabase:', adminDbError);
       throw new Error('Gagal menyimpan data ke database');
     }
 

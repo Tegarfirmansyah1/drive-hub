@@ -2,8 +2,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Cloud, Plus, HardDrive, UploadCloud, CheckCircle, Trash2, AlertCircle, X, File as FileIcon } from 'lucide-react';
-import { supabase } from '@/lib/supabase'; // Sesuaikan path jika berbeda
-import { DriveAccount } from '@/types';    // Sesuaikan path jika berbeda
+import { supabase } from '@/lib/supabase'; 
+import { DriveAccount } from '@/types';   
 
 export default function App() {
   // State untuk daftar drive nyata dari Supabase
