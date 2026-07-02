@@ -18,7 +18,7 @@ export default function LandingPage() {
         </div>
         <div>
           <Link 
-            href="/dashboard" 
+            href="/login" 
             className="px-5 py-2 bg-[#1f1f1f] hover:bg-[#2a2a2a] rounded-xl font-medium transition-colors border border-zinc-800"
           >
             Masuk
@@ -44,7 +44,7 @@ export default function LandingPage() {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
           <Link 
-            href="/dashboard" 
+            href="/login" 
             className="w-full sm:w-auto px-8 py-4 bg-[#ff9900] hover:bg-[#e68a00] text-black rounded-xl font-bold text-sm md:text-lg transition-all shadow-lg shadow-[#ff9900]/25 hover:scale-105 active:scale-95 flex items-center justify-center group"
           >
             Mulai Sekarang 
@@ -87,7 +87,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-bold mb-4">Aman & Terenkripsi</h3>
               <p className="text-zinc-400 leading-relaxed">
-                Akses token Anda dienkripsi secara mutakhir di dalam database Supabase. Kami sangat memprioritaskan privasi data Anda.
+                Akses token Anda dienkripsi secara mutakhir di dalam database. Kami sangat memprioritaskan privasi data Anda.
               </p>
             </div>
 

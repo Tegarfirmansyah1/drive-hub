@@ -6,6 +6,11 @@ export interface DriveAccount {
   email: string;
   encrypted_refresh_token: string;
   created_at: string;
+  quota?: {
+    total: number;
+    used: number;
+    remaining: number;
+  };
 }
 
 export interface AuthStatePayload {

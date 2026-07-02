@@ -33,7 +33,7 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="HbD75JnRgZDKlZ052B6uvYpcY40NVAIdJuyUQEXVkAc" />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body suppressHydrationWarning className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

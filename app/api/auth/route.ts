@@ -1,27 +1,26 @@
-// Path: app/api/auth/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
 import { oauth2Client, driveScopes } from '@/lib/google-auth';
-import { AuthStatePayload } from '@/types';
 
-export async function GET(request: NextRequest): Promise<NextResponse> {
+export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const alias = searchParams.get('alias');
+  // Tangkap userId yang dikirim dari frontend
+  const userId = searchParams.get('userId'); 
 
-  if (!alias) {
-    return NextResponse.json({ error: 'Parameter alias drive diperlukan' }, { status: 400 });
+  if (!alias || !userId) {
+    return NextResponse.redirect(new URL('/dashboard?error=permintaan_tidak_valid', request.url));
   }
 
-  // Kita gunakan parameter 'state' untuk membawa data alias ke callback OAuth
-  // karena Google akan mengembalikan state ini persis seperti kita mengirimnya
-  const statePayload: AuthStatePayload = { alias };
+  // Bungkus alias dan userId ke dalam objek state
+  const statePayload = { alias, userId };
   const stateString = Buffer.from(JSON.stringify(statePayload)).toString('base64');
 
+  // Generate URL Google OAuth
   const authUrl = oauth2Client.generateAuthUrl({
-    access_type: 'offline', // WAJIB: Agar Google memberikan refresh_token
-    prompt: 'consent',      // WAJIB: Memaksa layar persetujuan agar refresh_token selalu di-generate ulang
+    access_type: 'offline',
     scope: driveScopes,
     state: stateString,
+    prompt: 'consent'
   });
 
   return NextResponse.redirect(authUrl);
